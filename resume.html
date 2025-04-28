@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexander Cote - Resume</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -34,11 +35,11 @@
             <p><strong>Rensselaer Polytechnic Institute</strong> | Troy, NY</p>
             <p>School of Sciences: Dual Major in Computer Science and Information Technology</p>
             <p>Expected Graduation: May 2026</p>
-            <p><strong>Relevant Coursework:</strong></p>
+            <p><strong>Relevant Coursework (including Fall 2025):</strong></p>
             <ul>
                 <li>Operating Systems</li>
-                <li>Computer Organization</li>
-                <li>Principles of Software</li>
+                <li>Cryptogrophy</li>
+                <li>Database Systems</li>
                 <li>Web Systems Development</li>
                 <li>Modern Binary Exploitation</li>
                 <li>Managing IT Resources</li>
@@ -95,12 +96,33 @@
         <section>
             <h2>Download Resume</h2>
             <p>
-                <a href="assets/Spring%202025%20Resume.pdf" download>Download PDF Version</a>
+                <button id="download-pdf">Download HTML Resume as PDF</button>
             </p>
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Alexander Cote. All rights reserved.</p>
     </footer>
+    <script>
+        document.getElementById('download-pdf').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Select the content of the main section
+            const content = document.querySelector('main');
+
+            // Use jsPDF's html method to render the content into a PDF
+            doc.html(content, {
+                callback: function (doc) {
+                    // Save the generated PDF
+                    doc.save('Alexander_Cote_Resume.pdf');
+                },
+                x: 10,
+                y: 10,
+                width: 190 // Adjust width to fit the page
+            });
+        });
+    </script>
 </body>
 </html>
+``` 
