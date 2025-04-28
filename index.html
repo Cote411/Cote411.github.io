@@ -30,10 +30,35 @@
                 Check out my <a href="resume.html">resume</a> for more details about my experience, skills, and projects.
             </p>
         </section>
+        <section class="content-slider">
+            <div class="slide">
+                <h3>Computer Science</h3>
+                <p>Explore topics like algorithms, data structures, and software development.</p>
+            </div>
+            <div class="slide">
+                <h3>Cybersecurity</h3>
+                <p>Learn about ethical hacking, encryption, and secure coding practices.</p>
+            </div>
+            <div class="slide">
+                <h3>Web Development</h3>
+                <p>Discover the latest trends in front-end and back-end development.</p>
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2025 Your Name. All rights reserved.</p>
     </footer>
     <script src="js/script.js"></script>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+
+        setInterval(() => {
+            slides.forEach((slide, index) => {
+                slide.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+            });
+            currentIndex = (currentIndex + 1) % slides.length;
+        }, 3000);
+    </script>
 </body>
 </html>

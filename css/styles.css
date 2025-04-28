@@ -1,22 +1,24 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     color: #333;
 }
 
 header {
-    background: #333;
+    background: #ff6f61;
     color: #fff;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 nav ul {
@@ -24,7 +26,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    background: #444;
+    background: #ff8566;
     margin: 0;
 }
 
@@ -36,6 +38,7 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
 nav ul li a:hover {
@@ -44,14 +47,52 @@ nav ul li a:hover {
 
 main {
     padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 footer {
     text-align: center;
     padding: 1rem 0;
-    background: #333;
+    background: #ff6f61;
     color: #fff;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
+}
+
+h2 {
+    color: #ff6f61;
+    border-bottom: 2px solid #ff8566;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.content-slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin: 2rem 0;
+    border: 2px solid #ff8566;
+    border-radius: 8px;
+}
+
+content-slider .slide {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    padding: 2rem;
+    background: #fff;
+    text-align: center;
+}
+
+.content-slider .slide h3 {
+    color: #ff6f61;
+}
+
+.content-slider .slide p {
+    font-size: 1.1rem;
+    color: #555;
 }
