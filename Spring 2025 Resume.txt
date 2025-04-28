@@ -1,0 +1,52 @@
+Alexander Cote
+508-558-6897 | apc51104@gmail.com | Rehoboth, MA
+
+Summary
+As a Computer Science Junior at Rensselaer Polytechnic Institute, I combine expertise in programming, algorithms, and
+system design with a strong proficiency in teamwork and collaboration. My education has honed my problem-solving skills
+and adaptability in team-oriented tech environments. Eager to apply my skills in real-world settings, I am prepared to
+contribute innovative solutions and collaborate effectively in the computing field.
+
+Education
+Rensselaer Polytechnic Institute | Troy, NY
+School of Sciences: Dual Major in Computer Science and Information Technology
+Expected Graduation May 2026
+Relevant Course Work
+Computer Science: Operating Systems, Computer Organization, Principals of Software
+IT Web Science: Web Systems Development, Modern Binary Exploitation, Managing IT Resources
+
+Skills
+Languages and Tools: Python, C++, Java, JavaScript, HTML5, CSS, SQL, PHP, React, Node.js, Mongo DB
+Platforms: Microsoft Azure, GitHub
+Strong analytical and problem-solving skills
+Quick adaptability to new technologies and methodologies
+
+Projects
+Web Systems Development (Fall 2023): Developed an online exchange marketplace with a team of five, utilizing
+HTML5, JavaScript, CSS, PHP, MySQL, and Bootstrap for a merchandise catalog and customer identity
+management.
+Web Systems Development (Spring 2024): An online wardrobe manager for Spring 2024 that will utilize a React,
+Node.js, MongoDB development stack. It also includes a custom API for secure data exchange and information
+sharing.
+
+Experience
+Troy Area United Ministries | Troy, NY
+Computer Science Instructor | 01/2025 - Present
+As a Computer Science Instructor, I designed and taught a multi-week web development course for high school students,
+covering HTML, CSS, JavaScript, and AI tools like ChatGPT. I created interactive lessons and hands-on projects, adapting
+the curriculum for limited computing resources by using browser-based coding platforms. I helped students develop problemsolving skills, troubleshoot code, and gain confidence in programming.
+Briggs Corner Pizzeria
+Counter Staff Lead | 04/2021 - 08/2023
+As the Counter Staff Lead, I successfully managed and organized over 400 orders nightly, demonstrating strong leadership
+and exceptional organizational skills in a high-pressure environment. My role involved significant customer interaction and
+team coordination, where I excelled in resolving customer issues, monitoring staff work hours, and onboarding new hires.
+
+Leadership
+Alpha Chi Rho: Delta Phi Maintenance Chair (2024 - Present): Coordinate Managed the cleanliness, upkeep, and
+maintenance of the fraternity house, coordinating routine maintenance and cleaning schedules
+Robotics Team Captain (2019 - 2022): Led the Bishop Feehan High School robotics team to competitive success by
+fostering teamwork, driving technical project development, and implementing strategic planning.
+AAU Youth Baseball Coach (2019 - 2022): Mentored young athletes in skill development, teamwork, and
+sportsmanship, utilizing strong leadership and communication abilities.
+
+
