@@ -96,3 +96,13 @@ content-slider .slide {
     font-size: 1.1rem;
     color: #555;
 }
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #ff6f61;
+    margin: 1rem auto;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
