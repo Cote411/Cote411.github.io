@@ -10,10 +10,10 @@
 </head>
 <body>
     <!-- Add this right after the opening <body> tag -->
-    <div class="wip-banner">
+    <!-- <div class="wip-banner">
         <i class="fas fa-tools"></i> This portfolio is actively being developed. Updates coming soon!
         <button class="wip-close"><i class="fas fa-times"></i></button>
-    </div>
+    </div> -->
     
     <header>
         <div class="header-container">
@@ -57,13 +57,34 @@
         <!-- Summary Section -->
         <section id="summary" class="section-card">
             <h2><i class="fas fa-user-circle"></i> Summary</h2>
-            <p>
-                As a Computer Science Senior at Rensselaer Polytechnic Institute, I combine expertise in programming, 
-                algorithms, and system design with a strong proficiency in teamwork and collaboration. My education has 
-                honed my problem-solving skills and adaptability in team-oriented tech environments. Eager to apply my 
-                skills in real-world settings, I am prepared to contribute innovative solutions and collaborate effectively 
-                in the computing field.
-            </p>
+
+            <div class="development-status">
+                <i class="fas fa-code-branch"></i>
+                <span>Portfolio Status: <strong>Under Active Development</strong> • Last updated: May 27, 2025</span>
+            </div>
+            
+            <div class="summary-content">
+                <div class="summary-main">
+                    <p>
+                        As a Computer Science Senior at Rensselaer Polytechnic Institute, I combine expertise in programming, 
+                        algorithms, and system design with a strong proficiency in teamwork and collaboration. My education has 
+                        honed my problem-solving skills and adaptability in team-oriented tech environments. Eager to apply my 
+                        skills in real-world settings, I am prepared to contribute innovative solutions and collaborate effectively 
+                        in the computing field.
+                    </p>
+                </div>
+                
+                <div class="summary-interests">
+                    <h4><i class="fas fa-lightbulb"></i> Interests & Focus Areas</h4>
+                    <ul class="interests-list">
+                        <li><i class="fas fa-server"></i> Web Development</li>
+                        <li><i class="fas fa-shield-alt"></i> Cybersecurity</li>
+                        <li><i class="fas fa-database"></i> Database Systems</li>
+                        <li><i class="fas fa-desktop"></i> Front-end Engineering</li>
+                        <li><i class="fas fa-cloud"></i> Cloud Architecture</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- Education Section -->
@@ -226,31 +247,89 @@
         <!-- Leadership Section -->
         <section id="leadership" class="section-card">
             <h2><i class="fas fa-users"></i> Leadership</h2>
-            <div class="leadership-item">
-                <div class="leadership-header">
-                    <h3>Alpha Chi Rho: Delta Phi Maintenance Chair</h3>
-                    <span class="duration">2024 - Present</span>
+            
+            <div class="leadership-container">
+                <div class="leadership-item">
+                    <div class="leadership-header">
+                        <h3>Alpha Chi Rho: Delta Phi Chapter</h3>
+                    </div>
+                    
+                    <div class="leadership-roles">
+                        <div class="leadership-role">
+                            <div class="role-title">
+                                <i class="fas fa-tools"></i>
+                                <h4>Maintenance Chair</h4>
+                                <span class="duration">2024 - Present</span>
+                            </div>
+                            <p>
+                                Coordinated the cleanliness, upkeep, and maintenance of the fraternity house by implementing 
+                                regular maintenance schedules, managing cleaning rotations, and organizing community workdays.
+                                Effectively managed facility issues to ensure a safe and comfortable living environment for all members.
+                            </p>
+                        </div>
+                        
+                        <div class="leadership-role">
+                            <div class="role-title">
+                                <i class="fas fa-server"></i>
+                                <h4>Technology & Network Chair</h4>
+                                <span class="duration">2024 - Present</span>
+                            </div>
+                            <p>
+                                Designed and maintained the network infrastructure across 3 chapter houses, supporting 30+ members 
+                                and 100+ connected devices. Responsibilities include network setup, security configurations,
+                                troubleshooting connectivity issues, and implementing technical solutions to improve chapter operations.
+                            </p>
+                            <ul class="leadership-responsibilities">
+                                <li>Configured and maintained wireless access points for optimal coverage</li>
+                                <li>Implemented network security policies to protect member data</li>
+                                <li>Provided technical support for chapter members</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="leadership-impact">
+                        <h4><i class="fas fa-chart-line"></i> Impact</h4>
+                        <p>
+                            These leadership roles have strengthened my organizational, communication, and technical skills
+                            while allowing me to contribute meaningfully to my fraternity community. I've gained valuable 
+                            experience in managing resources, delegating responsibilities, and solving real-world problems.
+                        </p>
+                    </div>
                 </div>
-                <p>
-                    Coordinated the cleanliness, upkeep, and maintenance of the fraternity house, managing routine 
-                    maintenance and cleaning schedules.
-                </p>
-            </div>
-            <div class="leadership-item">
-                <div class="leadership-header">
-                    <h3>Alpha Chi Rho: Delta Phi Computer/Server Chair</h3>
-                    <span class="duration">2024 - Present</span>
-                </div>
-                <p>
-                    Maintain network infrastructure across 3 houses for 30+ members and 100+ devices
-                    Manage network setup, configuration, security, and troubleshooting
-                </p>
             </div>
         </section>
     </main>
     
     <footer>
-        <p>&copy; 2025 Alex Cote. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Connect With Me</h4>
+                <div class="footer-links">
+                    <a href="mailto:apc51104@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://www.linkedin.com/in/alexander-cote-87a926256/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/Cote411" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Site Navigation</h4>
+                <div class="footer-links">
+                    <a href="#summary">Summary</a>
+                    <a href="#education">Education</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#leadership">Leadership</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Alex Cote. All rights reserved.</p>
+            <div class="development-badge">
+                <i class="fas fa-code"></i> This site is actively being developed
+            </div>
+        </div>
     </footer>
     
     <script src="js/script.js"></script>
