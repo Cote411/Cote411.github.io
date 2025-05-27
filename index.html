@@ -5,61 +5,233 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex Cote - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>Alex Cote</h1>
-        <p>Welcome to my personal website! Side note: Still a work in progress.</p>
-        <img src="assets/my_face.jpeg" alt="Alexander Cote" class="profile-pic">
+        <div class="header-container">
+            <div class="profile-section">
+                <img src="assets/my_face.jpeg" alt="Alexander Cote" class="profile-pic">
+                <div>
+                    <h1>Alex Cote</h1>
+                    <p>
+                        <span class="emphasis-bar primary">CS & ITWS</span>
+                        <span>Rising Senior at Rensselaer Polytechnic Institute</span>
+                    </p>
+                    <p>
+                        <span class="emphasis-bar secondary"><i class="fas fa-map-marker-alt"></i> Boston, MA</span>
+                        <span class="emphasis-bar accent">Summer 2025</span>
+                        <span>Looking for Opportunities</span>
+                    </p>
+                </div>
+            </div>
+            <div class="contact-links">
+                <a href="mailto:apc51104@gmail.com"><i class="fas fa-envelope"></i> apc51104@gmail.com</a>
+                <a href="https://www.linkedin.com/in/alexander-cote-87a926256/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Cote411" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#"><i class="fas fa-globe"></i> Personal Website</a>
+            </div>
+        </div>
     </header>
+    
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="assets/Summer_2025_v1.2.pdf">Resume</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+            <li><a href="resume.html">Full Resume</a></li>
         </ul>
     </nav>
+    
     <main>
-        <section>
-            <h2>About Me</h2>
+        <!-- Summary Section -->
+        <section id="summary" class="section-card">
+            <h2><i class="fas fa-user-circle"></i> Summary</h2>
             <p>
-                I am a Computer Science Junior at Rensselaer Polytechnic Institute with expertise in programming, algorithms, 
-                and system design. I have experience in web development, teaching, and leadership roles, and I am eager to 
-                contribute innovative solutions in the computing field.
-            </p>
-            <p>
-                Check out my <a href="resume.html">resume</a> for more details about my experience, skills, and projects.
+                As a Computer Science Junior at Rensselaer Polytechnic Institute, I combine expertise in programming, 
+                algorithms, and system design with a strong proficiency in teamwork and collaboration. My education has 
+                honed my problem-solving skills and adaptability in team-oriented tech environments. Eager to apply my 
+                skills in real-world settings, I am prepared to contribute innovative solutions and collaborate effectively 
+                in the computing field.
             </p>
         </section>
-        <section class="content-slider">
-            <div class="slide">
-                <h3>Computer Science</h3>
-                <p>Explore topics like algorithms, data structures, and software development.</p>
+
+        <!-- Education Section -->
+        <section id="education" class="section-card">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="education-item">
+                <h3>Rensselaer Polytechnic Institute | Troy, NY</h3>
+                <p>School of Sciences: Dual Major in Computer Science and Information Technology</p>
+                <p><strong>Expected Graduation:</strong> May 2026</p>
+                <div class="coursework">
+                    <h4>Relevant Coursework:</h4>
+                    <div class="course-tags">
+                        <span class="course-tag" data-description="Study of operating system concepts including process management, memory management, file systems, and device drivers.">Operating Systems</span>
+                        <span class="course-tag" data-description="Explores computer architecture, assembly language programming, and the hardware-software interface.">Computer Organization</span>
+                        <span class="course-tag" data-description="Covers software engineering principles, design patterns, and development methodologies.">Principles of Software</span>
+                        <span class="course-tag" data-description="Focuses on building dynamic web applications with front-end and back-end technologies.">Web Systems Development</span>
+                        <span class="course-tag" data-description="Analysis of software vulnerabilities and exploitation techniques with hands-on security exercises.">Modern Binary Exploitation</span>
+                        <span class="course-tag" data-description="Strategic management of IT resources, infrastructure planning, and technology adoption in organizations.">Managing IT Resources</span>
+                    </div>
+                </div>
             </div>
-            <div class="slide">
-                <h3>Cybersecurity</h3>
-                <p>Learn about ethical hacking, encryption, and secure coding practices.</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-card">
+            <h2><i class="fas fa-code"></i> Skills</h2>
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h3>Languages & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">GitHub</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Strong analytical and problem-solving skills</li>
+                        <li>Quick adaptability to new technologies and methodologies</li>
+                        <li>Effective team collaboration</li>
+                    </ul>
+                </div>
             </div>
-            <div class="slide">
-                <h3>Web Development</h3>
-                <p>Discover the latest trends in front-end and back-end development.</p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-card">
+            <h2><i class="fas fa-laptop-code"></i> Projects</h2>
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>Online Exchange Marketplace</h3>
+                    <span class="project-date">Fall 2023</span>
+                </div>
+                <p>
+                    Developed an online exchange marketplace with a team of five, utilizing HTML5, JavaScript, CSS, PHP, 
+                    MySQL, and Bootstrap for a merchandise catalog and customer identity management.
+                </p>
+                <div class="project-tags">
+                    <span class="project-tag">HTML5</span>
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">CSS</span>
+                    <span class="project-tag">PHP</span>
+                    <span class="project-tag">MySQL</span>
+                    <span class="project-tag">Bootstrap</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>Online Wardrobe Manager</h3>
+                    <span class="project-date">Spring 2024</span>
+                </div>
+                <p>
+                    An online wardrobe manager for Spring 2024 that utilizes a React, Node.js, MongoDB development stack. 
+                    It also includes a custom API for secure data exchange and information sharing.
+                </p>
+                <div class="project-tags">
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">Node.js</span>
+                    <span class="project-tag">MongoDB</span>
+                    <span class="project-tag">API Development</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section-card">
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Computer Science Instructor</h3>
+                    <div class="experience-details">
+                        <span class="company">Troy Area United Ministries</span>
+                        <span class="location">Troy, NY</span>
+                        <span class="duration">January 2025 - Present</span>
+                    </div>
+                </div>
+                <p>
+                    Designed and taught a multi-week web development course for high school students, covering HTML, CSS, JavaScript, 
+                    and AI tools like ChatGPT. Created interactive lessons and hands-on projects, adapting the curriculum for 
+                    limited computing resources by using browser-based coding platforms. Helped students develop problem-solving 
+                    skills, troubleshoot code, and gain confidence in programming.
+                </p>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Counter Staff Lead</h3>
+                    <div class="experience-details">
+                        <span class="company">Briggs Corner Pizzeria</span>
+                        <span class="duration">April 2021 - August 2023</span>
+                    </div>
+                </div>
+                <p>
+                    Successfully managed and organized over 400 orders nightly, demonstrating strong leadership and 
+                    exceptional organizational skills in a high-pressure environment. Resolved customer issues, monitored 
+                    staff work hours, and onboarded new hires.
+                </p>
+            </div>
+        </section>
+
+        <!-- Leadership Section -->
+        <section id="leadership" class="section-card">
+            <h2><i class="fas fa-users"></i> Leadership</h2>
+            <div class="leadership-item">
+                <div class="leadership-header">
+                    <h3>Alpha Chi Rho: Delta Phi Maintenance Chair</h3>
+                    <span class="duration">2024 - Present</span>
+                </div>
+                <p>
+                    Coordinated the cleanliness, upkeep, and maintenance of the fraternity house, managing routine 
+                    maintenance and cleaning schedules.
+                </p>
+            </div>
+            <div class="leadership-item">
+                <div class="leadership-header">
+                    <h3>Robotics Team Captain</h3>
+                    <span class="duration">2019 - 2022</span>
+                </div>
+                <p>
+                    Led the Bishop Feehan High School robotics team to competitive success by fostering teamwork, 
+                    driving technical project development, and implementing strategic planning.
+                </p>
+            </div>
+            <div class="leadership-item">
+                <div class="leadership-header">
+                    <h3>AAU Youth Baseball Coach</h3>
+                    <span class="duration">2019 - 2022</span>
+                </div>
+                <p>
+                    Mentored young athletes in skill development, teamwork, and sportsmanship, utilizing strong leadership 
+                    and communication abilities.
+                </p>
             </div>
         </section>
     </main>
+    
     <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 Alex Cote. All rights reserved.</p>
     </footer>
+    
     <script src="js/script.js"></script>
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentIndex = 0;
-
-        setInterval(() => {
-            slides.forEach((slide, index) => {
-                slide.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
-            });
-            currentIndex = (currentIndex + 1) % slides.length;
-        }, 3000);
-    </script>
 </body>
 </html>
