@@ -135,6 +135,28 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Call this function after the page has loaded
     window.addEventListener('load', safelyLoadCodeExamples);
+    
+    // WIP banner close functionality
+    const wipCloseBtn = document.querySelector('.wip-close');
+    if (wipCloseBtn) {
+        wipCloseBtn.addEventListener('click', function() {
+            const wipBanner = document.querySelector('.wip-banner');
+            if (wipBanner) {
+                wipBanner.style.display = 'none';
+                
+                // Adjust the body padding when the banner is closed
+                document.body.style.paddingTop = 
+                    (parseInt(getComputedStyle(document.body).paddingTop) - 40) + 'px';
+                
+                // Also adjust the nav position
+                const nav = document.querySelector('nav');
+                if (nav) {
+                    nav.style.top = 
+                        (parseInt(getComputedStyle(nav).top) - 40) + 'px';
+                }
+            }
+        });
+    }
 });
 
 // Add this function to your existing script

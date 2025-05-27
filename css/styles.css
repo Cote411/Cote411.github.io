@@ -12,7 +12,7 @@ header {
 
 /* Add padding to the body to prevent content from hiding under fixed header */
 body {
-    padding-top: 200px; 
+    padding-top: 220px; /* Increased to accommodate the banner */
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
@@ -497,6 +497,42 @@ main {
     margin: 0.5rem 0 1rem 0.5rem;
 }
 
+/* Work in Progress Banner */
+.wip-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ff5722;
+    color: white;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    z-index: 2000;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wip-banner i {
+    font-size: 1rem;
+}
+
+.wip-close {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.25rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     main, .header-container {
@@ -506,7 +542,7 @@ main {
 
 @media (max-width: 768px) {
     body {
-        padding-top: 180px; /* Adjusted for smaller screens */
+        padding-top: 200px; /* Adjusted for smaller screens */
     }
     
     main, .header-container {
