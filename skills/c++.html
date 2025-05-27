@@ -1,0 +1,128 @@
+<div class="skill-details-header">
+                        <h4>C++ Expertise</h4>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="skill-details-content">
+                        <div class="skill-overview">
+                            <p>Strong experience with C++ programming for systems development, algorithm implementation, and performance-critical applications.</p>
+                        </div>
+                        
+                        <div class="code-example">
+                            <h5>Example: Custom Thread Pool Implementation</h5>
+                            <pre><code class="language-cpp">
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <functional>
+#include <future>
+
+class ThreadPool {
+private:
+    std::vector<std::thread> workers;
+    std::queue<std::function<void()>> tasks;
+    
+    std::mutex queue_mutex;
+    std::condition_variable condition;
+    bool stop;
+    
+public:
+    ThreadPool(size_t threads) : stop(false) {
+        for(size_t i = 0; i < threads; ++i) {
+            workers.emplace_back([this] {
+                while(true) {
+                    std::function<void()> task;
+                    {
+                        std::unique_lock<std::mutex> lock(this->queue_mutex);
+                        this->condition.wait(lock, [this] { 
+                            return this->stop || !this->tasks.empty(); 
+                        });
+                        
+                        if(this->stop && this->tasks.empty())
+                            return;
+                            
+                        task = std::move(this->tasks.front());
+                        this->tasks.pop();
+                    }
+                    task();
+                }
+            });
+        }
+    }
+    
+    template<class F, class... Args>
+    auto enqueue(F&& f, Args&&... args) 
+        -> std::future<typename std::result_of<F(Args...)>::type> {
+        using return_type = typename std::result_of<F(Args...)>::type;
+        
+        auto task = std::make_shared<std::packaged_task<return_type()>>(
+            std::bind(std::forward<F>(f), std::forward<Args>(args)...)
+        );
+            
+        std::future<return_type> res = task->get_future();
+        {
+            std::unique_lock<std::mutex> lock(queue_mutex);
+            if(stop)
+                throw std::runtime_error("enqueue on stopped ThreadPool");
+                
+            tasks.emplace([task](){ (*task)(); });
+        }
+        condition.notify_one();
+        return res;
+    }
+    
+    ~ThreadPool() {
+        {
+            std::unique_lock<std::mutex> lock(queue_mutex);
+            stop = true;
+        }
+        condition.notify_all();
+        for(std::thread &worker: workers)
+            worker.join();
+    }
+};
+
+// Example usage
+int fibonacci(int n) {
+    if (n < 2) return n;
+    return fibonacci(n-1) + fibonacci(n-2);
+}
+
+int main() {
+    ThreadPool pool(4);  // Create a thread pool with 4 worker threads
+    
+    // Enqueue several tasks
+    std::vector<std::future<int>> results;
+    for(int i = 0; i < 8; ++i) {
+        results.emplace_back(
+            pool.enqueue([i] {
+                std::cout << "Calculating fibonacci(" << i+20 << ") on thread " 
+                          << std::this_thread::get_id() << std::endl;
+                return fibonacci(i + 20);
+            })
+        );
+    }
+    
+    // Get the results
+    for(auto&& result : results)
+        std::cout << "Result: " << result.get() << std::endl;
+        
+    return 0;
+}
+</code></pre>
+                            <p class="code-explanation">This C++ example demonstrates a modern thread pool implementation using C++11 features. It showcases concurrent programming concepts including thread management, mutex locks for synchronization, condition variables for thread signaling, and future/promise pattern for task results. The thread pool efficiently distributes computational tasks across multiple worker threads.</p>
+                        </div>
+                        
+                        <div class="skill-details-footer">
+                            <h5>Key C++ Skills:</h5>
+                            <ul>
+                                <li>Modern C++ (11/14/17) features and best practices</li>
+                                <li>Memory management and optimization techniques</li>
+                                <li>Multithreading and concurrent programming</li>
+                                <li>Object-oriented and generic template programming</li>
+                                <li>Data structures and algorithms implementation</li>
+                            </ul>
+                        </div>
+                    </div>

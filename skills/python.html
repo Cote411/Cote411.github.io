@@ -1,0 +1,63 @@
+<div class="skill-details-header">
+    <h4>Python Expertise</h4>
+    <button class="close-btn"><i class="fas fa-times"></i></button>
+</div>
+<div class="skill-details-content">
+    <div class="skill-overview">
+        <p>Advanced Python programming with experience in data analysis, web development, and automation.</p>
+    </div>
+    
+    <div class="code-example">
+        <h5>Example: Web Scraping with Beautiful Soup</h5>
+        <pre><code class="language-python">
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+def scrape_tech_news():
+    """Scrape technology headlines from a news website"""
+    # Send HTTP request to the website
+    url = "https://news.ycombinator.com/"
+    response = requests.get(url)
+    
+    # Parse HTML content
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    # Extract news titles and links
+    titles = soup.select('.titleline > a')
+    scores = soup.select('.score')
+    
+    # Create data structure
+    news_items = []
+    
+    for i in range(min(len(titles), len(scores))):
+        item = {
+            'title': titles[i].text,
+            'link': titles[i]['href'],
+            'points': int(scores[i].text.split()[0])
+        }
+        news_items.append(item)
+    
+    # Convert to DataFrame and sort by points
+    df = pd.DataFrame(news_items)
+    return df.sort_values('points', ascending=False)
+
+# Example usage
+top_tech_news = scrape_tech_news()
+print(f"Found {len(top_tech_news)} news items")
+print(top_tech_news.head(3))
+        </code></pre>
+        <p class="code-explanation">This script demonstrates web scraping capabilities using the Beautiful Soup library to extract technology news headlines. It showcases my ability to work with HTTP requests, parse HTML content, and transform data into structured formats using pandas.</p>
+    </div>
+    
+    <div class="skill-details-footer">
+        <h5>Key Python Skills:</h5>
+        <ul>
+            <li>Data analysis with pandas, numpy, and matplotlib</li>
+            <li>Web development using Flask and Django</li>
+            <li>Automation scripts for task optimization</li>
+            <li>API development and integration</li>
+            <li>Web scraping and data extraction</li>
+        </ul>
+    </div>
+</div>

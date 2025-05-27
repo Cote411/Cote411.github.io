@@ -1,0 +1,117 @@
+<div class="skill-details-header">
+                        <h4>React Development</h4>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="skill-details-content">
+                        <div class="skill-overview">
+                            <p>Experience building modern, interactive web applications with React, utilizing hooks, context API, and state management solutions.</p>
+                        </div>
+                        
+                        <div class="code-example">
+                            <h5>Example: Custom Hook for Data Fetching</h5>
+                            <pre><code class="language-jsx">
+// Custom hook for API data fetching with caching and error handling
+import { useState, useEffect, useCallback } from 'react';
+
+export const useFetch = (url, options = {}) => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [shouldRefetch, setShouldRefetch] = useState(0);
+
+  // Create a memoized fetchData function
+  const fetchData = useCallback(async () => {
+    setIsLoading(true);
+    
+    try {
+      const response = await fetch(url, {
+        ...options,
+        headers: {
+          'Content-Type': 'application/json',
+          ...options.headers,
+        },
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      setData(result);
+      setError(null);
+    } catch (err) {
+      setError(err.message || 'An error occurred while fetching data');
+      setData(null);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [url, options, shouldRefetch]);
+
+  // Function to manually trigger a refetch
+  const refetch = () => {
+    setShouldRefetch(prev => prev + 1);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return { data, isLoading, error, refetch };
+};
+
+// Example usage in a React component
+const UserProfile = ({ userId }) => {
+  const { 
+    data: user, 
+    isLoading, 
+    error, 
+    refetch 
+  } = useFetch(`https://api.example.com/users/${userId}`);
+
+  if (isLoading) return &lt;div&gt;Loading...&lt;/div&gt;;
+  if (error) return &lt;div&gt;Error: {error} &lt;button onClick={refetch}&gt;Retry&lt;/button&gt;&lt;/div&gt;;
+  
+  return (
+    &lt;div className="user-profile"&gt;
+      &lt;h2&gt;{user.name}&lt;/h2&gt;
+      &lt;p&gt;{user.email}&lt;/p&gt;
+      &lt;button onClick={refetch}&gt;Refresh Data&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+                            </code></pre>
+                            <p class="code-explanation">This custom React hook demonstrates advanced knowledge of React's hooks system, API data fetching, error handling, and state management. The useFetch hook encapsulates the fetch logic for reusability across components, while providing loading states, error handling, and refetching capabilities.</p>
+                        </div>
+                        
+                        <div class="terminal">
+                            <div class="terminal-prompt">npx create-react-app my-app</div>
+                            <div class="terminal-output">
+                                Creating a new React app in /path/to/my-app...<br>
+                                Installing packages...<br>
+                                Added 1687 packages in 45s<br>
+                                <br>
+                                Success! Created my-app at /path/to/my-app
+                            </div>
+                            <div class="terminal-prompt">cd my-app</div>
+                            <div class="terminal-prompt">npm start</div>
+                            <div class="terminal-output">
+                                Compiled successfully!<br>
+                                <br>
+                                You can now view my-app in the browser.<br>
+                                <br>
+                                Local:            http://localhost:3000<br>
+                                On Your Network:  http://192.168.1.5:3000
+                            </div>
+                        </div>
+                        
+                        <div class="skill-details-footer">
+                            <h5>Key React Skills:</h5>
+                            <ul>
+                                <li>Functional components with React Hooks</li>
+                                <li>State management with Context API and Redux</li>
+                                <li>Custom hooks for reusable logic</li>
+                                <li>React Router for navigation</li>
+                                <li>Performance optimization techniques</li>
+                            </ul>
+                        </div>
+                    </div>

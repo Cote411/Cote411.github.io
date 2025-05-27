@@ -1,0 +1,127 @@
+<div class="skill-details-header">
+                        <h4>Java Development</h4>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="skill-details-content">
+                        <div class="skill-overview">
+                            <p>Experienced in Java development with a focus on object-oriented design, enterprise applications, and robust software systems.</p>
+                        </div>
+                        
+                        <div class="code-example">
+                            <h5>Example: REST API with Spring Boot</h5>
+                            <pre><code class="language-java">
+package com.example.taskmanager.controller;
+
+import com.example.taskmanager.model.Task;
+import com.example.taskmanager.service.TaskService;
+import com.example.taskmanager.exception.ResourceNotFoundException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/v1")
+public class TaskController {
+    @Autowired
+    private TaskService taskService;
+
+    @GetMapping("/tasks")
+    public List<Task> getAllTasks() {
+        return taskService.findAll();
+    }
+
+    @GetMapping("/tasks/{id}")
+    public ResponseEntity<Task> getTaskById(
+            @PathVariable(value = "id") Long taskId) throws ResourceNotFoundException {
+        Task task = taskService.findById(taskId)
+                .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + taskId));
+        return ResponseEntity.ok().body(task);
+    }
+    
+    @GetMapping("/tasks/status/{status}")
+    public List<Task> getTasksByStatus(@PathVariable(value = "status") String status) {
+        return taskService.findByStatus(status);
+    }
+
+    @PostMapping("/tasks")
+    public Task createTask(@Valid @RequestBody Task task) {
+        return taskService.save(task);
+    }
+
+    @PutMapping("/tasks/{id}")
+    public ResponseEntity<Task> updateTask(
+            @PathVariable(value = "id") Long taskId,
+            @Valid @RequestBody Task taskDetails) throws ResourceNotFoundException {
+        
+        Task task = taskService.findById(taskId)
+                .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + taskId));
+
+        task.setTitle(taskDetails.getTitle());
+        task.setDescription(taskDetails.getDescription());
+        task.setStatus(taskDetails.getStatus());
+        task.setDueDate(taskDetails.getDueDate());
+        
+        final Task updatedTask = taskService.save(task);
+        return ResponseEntity.ok(updatedTask);
+    }
+
+    @DeleteMapping("/tasks/{id}")
+    public Map<String, Boolean> deleteTask(
+            @PathVariable(value = "id") Long taskId) throws ResourceNotFoundException {
+        
+        Task task = taskService.findById(taskId)
+                .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + taskId));
+
+        taskService.delete(task);
+        
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return response;
+    }
+}
+</code></pre>
+                            <p class="code-explanation">This Java example demonstrates a RESTful API controller using Spring Boot framework. It implements standard CRUD operations with proper error handling, request validation, and dependency injection. The code follows best practices for enterprise Java development including clear separation of concerns, proper API versioning, and consistent response patterns.</p>
+                        </div>
+                        
+                        <div class="terminal">
+                            <div class="terminal-prompt">mvn spring-boot:run</div>
+                            <div class="terminal-output">
+                                [INFO] Scanning for projects...<br>
+                                [INFO] --------------------------< com.example:task-manager >--------------------------<br>
+                                [INFO] Building task-manager 0.0.1-SNAPSHOT<br>
+                                [INFO] --------------------------------[ jar ]---------------------------------<br>
+                                [INFO] <br>
+                                [INFO] >>> spring-boot-maven-plugin:2.6.7:run (default-cli) > test-compile @ task-manager >>><br>
+                                [INFO] <br>
+                                .   ____          _            __ _ _<br>
+                                /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \<br>
+                                ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \<br>
+                                \\/  ___)| |_)| | | | | || (_| |  ) ) ) )<br>
+                                '  |____| .__|_| |_|_| |_\__, | / / / /<br>
+                                =========|_|==============|___/=/_/_/_/<br>
+                                :: Spring Boot ::                (v2.6.7)<br>
+                                <br>
+                                2025-05-27 15:23:10.281  INFO 13572 --- [  main] c.e.taskmanager.TaskManagerApplication   : Starting TaskManagerApplication using Java 11<br>
+                                2025-05-27 15:23:11.543  INFO 13572 --- [  main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)<br>
+                                2025-05-27 15:23:12.104  INFO 13572 --- [  main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http)<br>
+                                2025-05-27 15:23:12.221  INFO 13572 --- [  main] c.e.taskmanager.TaskManagerApplication   : Started TaskManagerApplication in 2.345 seconds
+                            </div>
+                        </div>
+                        
+                        <div class="skill-details-footer">
+                            <h5>Key Java Skills:</h5>
+                            <ul>
+                                <li>Object-oriented design and implementation</li>
+                                <li>Spring framework (Spring Boot, Spring MVC, Spring Data)</li>
+                                <li>RESTful API development and microservices</li>
+                                <li>Java concurrency and multithreading</li>
+                                <li>Design patterns and enterprise architecture</li>
+                            </ul>
+                        </div>
+                    </div>

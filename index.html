@@ -6,6 +6,7 @@
     <title>Alex Cote - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css">
 </head>
 <body>
     <header>
@@ -51,7 +52,7 @@
         <section id="summary" class="section-card">
             <h2><i class="fas fa-user-circle"></i> Summary</h2>
             <p>
-                As a Computer Science Junior at Rensselaer Polytechnic Institute, I combine expertise in programming, 
+                As a Computer Science Senior at Rensselaer Polytechnic Institute, I combine expertise in programming, 
                 algorithms, and system design with a strong proficiency in teamwork and collaboration. My education has 
                 honed my problem-solving skills and adaptability in team-oriented tech environments. Eager to apply my 
                 skills in real-world settings, I am prepared to contribute innovative solutions and collaborate effectively 
@@ -69,12 +70,12 @@
                 <div class="coursework">
                     <h4>Relevant Coursework:</h4>
                     <div class="course-tags">
-                        <span class="course-tag" data-description="Study of operating system concepts including process management, memory management, file systems, and device drivers.">Operating Systems</span>
-                        <span class="course-tag" data-description="Explores computer architecture, assembly language programming, and the hardware-software interface.">Computer Organization</span>
-                        <span class="course-tag" data-description="Covers software engineering principles, design patterns, and development methodologies.">Principles of Software</span>
-                        <span class="course-tag" data-description="Focuses on building dynamic web applications with front-end and back-end technologies.">Web Systems Development</span>
-                        <span class="course-tag" data-description="Analysis of software vulnerabilities and exploitation techniques with hands-on security exercises.">Modern Binary Exploitation</span>
-                        <span class="course-tag" data-description="Strategic management of IT resources, infrastructure planning, and technology adoption in organizations.">Managing IT Resources</span>
+                        <span class="course-tag" data-description="Learned low-level system programming concepts including process management, memory allocation, synchronization, and interprocess communication. Built multi-threaded and networked applications using system calls and parallel programming techniques.">Operating Systems</span>
+                        <span class="course-tag" data-description="Explored core programming concepts (functions, pointers, arrays, classes) and algorithmic theory (Big-O, recursion, induction proofs). Implemented and analyzed abstract data types like trees, hash maps, and sequences through recursive and iterative algorithms.">Data Structures</span>
+                        <span class="course-tag" data-description="Studied modern software engineering practices including object-oriented design, unit testing, refactoring, version control, and design patterns. Built GUI and cloud-based applications with an emphasis on writing clean, maintainable, and testable code.">Principles of Software</span>
+                        <span class="course-tag" data-description="Designed and developed full-stack web applications using server-side and client-side technologies. Gained experience in configuring web servers, working with dynamic content, and deploying interactive web-based systems.">Web Systems Development</span>
+                        <span class="course-tag" data-description="Focused on advanced cybersecurity skills in reverse engineering and binary exploitation. Analyzed and bypassed modern system protections using hands-on lab work with real-world exploitation techniques.">Modern Binary Exploitation</span>
+                        <span class="course-tag" data-description="Integrated business and IT management principles to solve real-world problems. Led an IT project for a real client, covering lifecycle management, systems engineering, process improvement, and strategic use of information systems.">Managing IT Resources</span>
                     </div>
                 </div>
             </div>
@@ -83,23 +84,25 @@
         <!-- Skills Section -->
         <section id="skills" class="section-card">
             <h2><i class="fas fa-code"></i> Skills</h2>
+            
+            <!-- Skills Categories in Grid Layout -->
             <div class="skills-container">
                 <div class="skill-group">
                     <h3>Languages & Tools</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag expandable" data-skill="python">Python</span>
+                        <span class="skill-tag expandable" data-skill="cpp">C++</span>
+                        <span class="skill-tag expandable" data-skill="java">Java</span>
+                        <span class="skill-tag expandable" data-skill="javascript">JavaScript</span>
+                        <span class="skill-tag expandable" data-skill="html-css">HTML5/CSS</span>
                         <span class="skill-tag">SQL</span>
                         <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">React</span>
+                        <span class="skill-tag expandable" data-skill="react">React</span>
                         <span class="skill-tag">Node.js</span>
                         <span class="skill-tag">MongoDB</span>
                     </div>
                 </div>
+                
                 <div class="skill-group">
                     <h3>Platforms</h3>
                     <div class="skill-tags">
@@ -107,6 +110,7 @@
                         <span class="skill-tag">GitHub</span>
                     </div>
                 </div>
+                
                 <div class="skill-group">
                     <h3>Soft Skills</h3>
                     <ul>
@@ -115,6 +119,27 @@
                         <li>Effective team collaboration</li>
                     </ul>
                 </div>
+            </div>
+            
+            <!-- Skill Details (outside the grid) -->
+            <div class="skill-details-container">
+                <!-- Python Skill Details -->
+                <div id="python-details" class="skill-details"></div>
+                
+                <!-- JavaScript Skill Details -->
+                <div id="javascript-details" class="skill-details"></div>
+                
+                <!-- React Skill Details -->
+                <div id="react-details" class="skill-details"></div>
+                
+                <!-- C++ Skill Details -->
+                <div id="cpp-details" class="skill-details"></div>
+                
+                <!-- Java Skill Details -->
+                <div id="java-details" class="skill-details"></div>
+                
+                <!-- HTML/CSS Skill Details -->
+                <div id="html-css-details" class="skill-details"></div>
             </div>
         </section>
 
@@ -207,22 +232,12 @@
             </div>
             <div class="leadership-item">
                 <div class="leadership-header">
-                    <h3>Robotics Team Captain</h3>
-                    <span class="duration">2019 - 2022</span>
+                    <h3>Alpha Chi Rho: Delta Phi Computer/Server Chair</h3>
+                    <span class="duration">2024 - Present</span>
                 </div>
                 <p>
-                    Led the Bishop Feehan High School robotics team to competitive success by fostering teamwork, 
-                    driving technical project development, and implementing strategic planning.
-                </p>
-            </div>
-            <div class="leadership-item">
-                <div class="leadership-header">
-                    <h3>AAU Youth Baseball Coach</h3>
-                    <span class="duration">2019 - 2022</span>
-                </div>
-                <p>
-                    Mentored young athletes in skill development, teamwork, and sportsmanship, utilizing strong leadership 
-                    and communication abilities.
+                    Maintain network infrastructure across 3 houses for 30+ members and 100+ devices
+                    Manage network setup, configuration, security, and troubleshooting
                 </p>
             </div>
         </section>
@@ -233,5 +248,14 @@
     </footer>
     
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/jsx.min.js"></script>
+    <script>
+        hljs.configure({
+            languages: ['javascript', 'jsx', 'html', 'css', 'python'],
+            ignoreUnescapedHTML: true
+        });
+        hljs.highlightAll();
+    </script>
 </body>
 </html>
