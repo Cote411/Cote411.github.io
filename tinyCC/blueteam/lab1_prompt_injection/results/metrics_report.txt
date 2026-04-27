@@ -1,0 +1,37 @@
+============================================================
+Lab 1: Prompt Injection Detection Engine — Results
+Generated : 2026-04-24 14:28:32
+============================================================
+
+DATASET
+  Total samples : 70
+  Train split   : 52
+  Test split    : 18
+
+MODEL ARCHITECTURE
+  Feature extraction : TF-IDF (unigrams + bigrams, max_features=500,
+                       sublinear_tf=True, lowercase=True)
+  Classifier         : Logistic Regression (L2, C=1.0,
+                       class_weight=balanced, solver=lbfgs)
+
+CROSS-VALIDATION RESULTS (5-fold stratified)
+  Accuracy  : 0.9857 ± 0.0286
+  Precision : 0.9875 (macro avg)
+  Recall    : 0.9857 (macro avg)
+  F1-score  : 0.9856 ± 0.0287 (macro avg)
+
+HELD-OUT TEST SET (25% split, stratified)
+              precision    recall  f1-score   support
+
+      benign       1.00      1.00      1.00         9
+   malicious       1.00      1.00      1.00         9
+
+    accuracy                           1.00        18
+   macro avg       1.00      1.00      1.00        18
+weighted avg       1.00      1.00      1.00        18
+
+CONFUSION MATRIX
+  Rows = actual class | Cols = predicted class
+  Labels: ['benign', 'malicious']
+  benign     | [9, 0]
+  malicious  | [0, 9]

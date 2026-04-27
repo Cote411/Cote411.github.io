@@ -1,0 +1,21 @@
+{
+  "cv_accuracy_mean": 0.9857142857142858,
+  "cv_accuracy_std": 0.02857142857142856,
+  "cv_precision_mean": 0.9875,
+  "cv_recall_mean": 0.9857142857142858,
+  "cv_f1_mean": 0.9856410256410257,
+  "cv_f1_std": 0.0287179487179487,
+  "confusion_matrix": [
+    [
+      9,
+      0
+    ],
+    [
+      0,
+      9
+    ]
+  ],
+  "train_size": 52,
+  "test_size": 18,
+  "dataset_size": 70
+}
