@@ -32,20 +32,20 @@ public class TaskController {
     private TaskService taskService;
 
     @GetMapping("/tasks")
-    public List<Task> getAllTasks() {
+    public List&lt;Task&gt; getAllTasks() {
         return taskService.findAll();
     }
 
     @GetMapping("/tasks/{id}")
-    public ResponseEntity<Task> getTaskById(
+    public ResponseEntity&lt;Task&gt; getTaskById(
             @PathVariable(value = "id") Long taskId) throws ResourceNotFoundException {
         Task task = taskService.findById(taskId)
                 .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + taskId));
         return ResponseEntity.ok().body(task);
     }
-    
+
     @GetMapping("/tasks/status/{status}")
-    public List<Task> getTasksByStatus(@PathVariable(value = "status") String status) {
+    public List&lt;Task&gt; getTasksByStatus(@PathVariable(value = "status") String status) {
         return taskService.findByStatus(status);
     }
 
@@ -55,10 +55,10 @@ public class TaskController {
     }
 
     @PutMapping("/tasks/{id}")
-    public ResponseEntity<Task> updateTask(
+    public ResponseEntity&lt;Task&gt; updateTask(
             @PathVariable(value = "id") Long taskId,
             @Valid @RequestBody Task taskDetails) throws ResourceNotFoundException {
-        
+
         Task task = taskService.findById(taskId)
                 .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + taskId));
 
@@ -66,21 +66,21 @@ public class TaskController {
         task.setDescription(taskDetails.getDescription());
         task.setStatus(taskDetails.getStatus());
         task.setDueDate(taskDetails.getDueDate());
-        
+
         final Task updatedTask = taskService.save(task);
         return ResponseEntity.ok(updatedTask);
     }
 
     @DeleteMapping("/tasks/{id}")
-    public Map<String, Boolean> deleteTask(
+    public Map&lt;String, Boolean&gt; deleteTask(
             @PathVariable(value = "id") Long taskId) throws ResourceNotFoundException {
-        
+
         Task task = taskService.findById(taskId)
                 .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + taskId));
 
         taskService.delete(task);
-        
-        Map<String, Boolean> response = new HashMap<>();
+
+        Map&lt;String, Boolean&gt; response = new HashMap&lt;&gt;();
         response.put("deleted", Boolean.TRUE);
         return response;
     }

@@ -21,14 +21,6 @@ header {
     z-index: 1000; 
 }
 
-nav {
-    background: #233954; /* Slightly lighter than header */
-    position: fixed;
-    top: 120px; /* Position it below the header */
-    width: 100%;
-    z-index: 999;
-}
-
 main {
     margin-top: 60px; 
     background: #fff;
@@ -64,27 +56,6 @@ main {
 .section-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Navigation styling */
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 0;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5rem 1.5rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
-
-nav ul li a:hover {
-    color: #64b5f6;
 }
 
 /* Section headers */
@@ -617,27 +588,6 @@ nav ul li a:hover {
     gap: 2rem;
 }
 
-.development-status {
-    background: #f8f9fa;
-    border-left: 4px solid #3f72af;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.9rem;
-    color: #495057;
-}
-
-.development-status i {
-    color: #3f72af;
-    font-size: 1.1rem;
-}
-
-.development-status strong {
-    color: #ff5722;
-}
-
 .summary-interests {
     background: #f8f9fa;
     border-radius: 8px;
@@ -754,96 +704,6 @@ footer {
     font-size: 0.9rem;
 }
 
-.development-badge {
-    background: #1a2639;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.development-badge i {
-    color: #ff5722;
-}
-
-/* WIP banner */
-.wip-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #ff5722;
-    color: white;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    z-index: 2000;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.wip-banner i {
-    font-size: 1rem;
-}
-
-.wip-close {
-    position: absolute;
-    right: 1rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    padding: 0.25rem;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Call to Action Buttons */
-.summary-cta {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.cta-button {
-    background: #3f72af;
-    color: white;
-    text-decoration: none;
-    padding: 0.7rem 1.5rem;
-    border-radius: 6px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-    background: #233954;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: white;
-}
-
-.cta-button.secondary {
-    background: transparent;
-    color: #3f72af;
-    border: 2px solid #3f72af;
-}
-
-.cta-button.secondary:hover {
-    background: #f0f4f8;
-    color: #233954;
-}
-
 /* Responsive styles */
 @media (max-width: 1200px) {
     main, .header-container {
@@ -854,17 +714,27 @@ footer {
 @media (max-width: 768px) {
     /* Mobile styles */
     body {
-        padding-top: 200px;
+        padding-top: 0;
     }
-    
+
+    header {
+        position: static;
+    }
+
     main, .header-container {
         width: 100%;
         padding: 1rem;
         border-radius: 0;
     }
-    
+
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .profile-section {
         flex-direction: column;
+        align-items: stretch;
         text-align: center;
     }
     
@@ -876,15 +746,6 @@ footer {
     .contact-links {
         align-items: center;
         margin-top: 1rem;
-    }
-    
-    nav {
-        overflow-x: auto;
-    }
-    
-    nav ul {
-        width: max-content;
-        padding: 0.5rem 1rem;
     }
     
     .summary-content {
@@ -945,10 +806,3 @@ footer {
     }
 }
 
-@media (min-width: 992px) {
-    .projects-container, .experiences-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-}

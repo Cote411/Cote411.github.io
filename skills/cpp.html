@@ -10,39 +10,39 @@
                         <div class="code-example">
                             <h5>Example: Custom Thread Pool Implementation</h5>
                             <pre><code class="language-cpp">
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <thread>
-#include <mutex>
-#include <condition_variable>
-#include <functional>
-#include <future>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+#include &lt;condition_variable&gt;
+#include &lt;functional&gt;
+#include &lt;future&gt;
 
 class ThreadPool {
 private:
-    std::vector<std::thread> workers;
-    std::queue<std::function<void()>> tasks;
-    
+    std::vector&lt;std::thread&gt; workers;
+    std::queue&lt;std::function&lt;void()&gt;&gt; tasks;
+
     std::mutex queue_mutex;
     std::condition_variable condition;
     bool stop;
-    
+
 public:
     ThreadPool(size_t threads) : stop(false) {
-        for(size_t i = 0; i < threads; ++i) {
+        for(size_t i = 0; i &lt; threads; ++i) {
             workers.emplace_back([this] {
                 while(true) {
-                    std::function<void()> task;
+                    std::function&lt;void()&gt; task;
                     {
-                        std::unique_lock<std::mutex> lock(this->queue_mutex);
-                        this->condition.wait(lock, [this] { 
-                            return this->stop || !this->tasks.empty(); 
+                        std::unique_lock&lt;std::mutex&gt; lock(this->queue_mutex);
+                        this->condition.wait(lock, [this] {
+                            return this->stop || !this->tasks.empty();
                         });
-                        
+
                         if(this->stop && this->tasks.empty())
                             return;
-                            
+
                         task = std::move(this->tasks.front());
                         this->tasks.pop();
                     }
@@ -51,31 +51,31 @@ public:
             });
         }
     }
-    
-    template<class F, class... Args>
-    auto enqueue(F&& f, Args&&... args) 
-        -> std::future<typename std::result_of<F(Args...)>::type> {
-        using return_type = typename std::result_of<F(Args...)>::type;
-        
-        auto task = std::make_shared<std::packaged_task<return_type()>>(
-            std::bind(std::forward<F>(f), std::forward<Args>(args)...)
+
+    template&lt;class F, class... Args&gt;
+    auto enqueue(F&& f, Args&&... args)
+        -> std::future&lt;typename std::result_of&lt;F(Args...)&gt;::type&gt; {
+        using return_type = typename std::result_of&lt;F(Args...)&gt;::type;
+
+        auto task = std::make_shared&lt;std::packaged_task&lt;return_type()&gt;&gt;(
+            std::bind(std::forward&lt;F&gt;(f), std::forward&lt;Args&gt;(args)...)
         );
-            
-        std::future<return_type> res = task->get_future();
+
+        std::future&lt;return_type&gt; res = task->get_future();
         {
-            std::unique_lock<std::mutex> lock(queue_mutex);
+            std::unique_lock&lt;std::mutex&gt; lock(queue_mutex);
             if(stop)
                 throw std::runtime_error("enqueue on stopped ThreadPool");
-                
+
             tasks.emplace([task](){ (*task)(); });
         }
         condition.notify_one();
         return res;
     }
-    
+
     ~ThreadPool() {
         {
-            std::unique_lock<std::mutex> lock(queue_mutex);
+            std::unique_lock&lt;std::mutex&gt; lock(queue_mutex);
             stop = true;
         }
         condition.notify_all();
@@ -86,29 +86,29 @@ public:
 
 // Example usage
 int fibonacci(int n) {
-    if (n < 2) return n;
+    if (n &lt; 2) return n;
     return fibonacci(n-1) + fibonacci(n-2);
 }
 
 int main() {
     ThreadPool pool(4);  // Create a thread pool with 4 worker threads
-    
+
     // Enqueue several tasks
-    std::vector<std::future<int>> results;
-    for(int i = 0; i < 8; ++i) {
+    std::vector&lt;std::future&lt;int&gt;&gt; results;
+    for(int i = 0; i &lt; 8; ++i) {
         results.emplace_back(
             pool.enqueue([i] {
-                std::cout << "Calculating fibonacci(" << i+20 << ") on thread " 
-                          << std::this_thread::get_id() << std::endl;
+                std::cout &lt;&lt; "Calculating fibonacci(" &lt;&lt; i+20 &lt;&lt; ") on thread "
+                          &lt;&lt; std::this_thread::get_id() &lt;&lt; std::endl;
                 return fibonacci(i + 20);
             })
         );
     }
-    
+
     // Get the results
     for(auto&& result : results)
-        std::cout << "Result: " << result.get() << std::endl;
-        
+        std::cout &lt;&lt; "Result: " &lt;&lt; result.get() &lt;&lt; std::endl;
+
     return 0;
 }
 </code></pre>
